@@ -1,8 +1,7 @@
 FROM ubuntu:16.04
+MAINTAINER togashik
 
-# debug 
-# RUN apt-get update && apt-get install -y openssh-server rsyslog supervisor vim inetutils-ping
-RUN apt-get update && apt-get install -y openssh-server rsyslog supervisor
+RUN apt-get update && apt-get install -y openssh-server rsyslog supervisor iproute2 vim
 RUN mkdir /var/run/sshd
 RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config

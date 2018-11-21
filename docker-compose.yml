@@ -5,11 +5,13 @@ services:
     ports:
       - "10001:22"
       - "10002:514/udp"
+    hostname: rsyslog_receiver
   sender:
     image: rsyslog_daemon
     ports:
       - "10003:22"
       - "10004:514/udp"
+    hostname: rsyslog_sender
 networks:
   default:
     external:
