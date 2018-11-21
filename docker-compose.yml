@@ -1,0 +1,16 @@
+version: '3'
+services:
+  receiver:
+    image: rsyslog_daemon
+    ports:
+      - "10001:22"
+      - "10002:514/udp"
+  sender:
+    image: rsyslog_daemon
+    ports:
+      - "10003:22"
+      - "10004:514/udp"
+networks:
+  default:
+    external:
+      name: rsyslog-network
